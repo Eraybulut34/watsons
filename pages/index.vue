@@ -66,7 +66,7 @@ export default {
   methods: {
     saveBook() {
       this.$axios
-        .post('http://localhost:3000/posts', {
+        .post('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/', {
           name: this.bookName,
           author: this.bookAuthor,
           category: this.bookCategory,
@@ -81,19 +81,19 @@ export default {
         })
     },
     deleteBook(id) {
-      this.$axios.delete('http://localhost:3000/posts/' + id).then(() => {
+      this.$axios.delete('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/' + id).then(() => {
         this.getBooks()
       })
     },
 
     getBooks() {
       this.$axios
-        .get('http://localhost:3000/posts')
+        .get('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/')
         .then((response) => (this.books = response.data))
     },
     updateBook() {
       this.$axios
-        .put('http://localhost:3000/posts/' + this.bookId, {
+        .put('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/' + this.bookId, {
           name: this.bookName,
           category: this.bookCategory,
           author: this.bookAuthor,

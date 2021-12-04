@@ -1,4 +1,6 @@
-# mynuxt
+# Kitaplar
+
+# Mockapi'ye bağlı, get, post, put, delete işlemleri yapabilen, bootstrap kartlarıyla anasayfasında listeleme yapan bir uygulama.
 
 ## Build Setup
 
