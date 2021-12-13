@@ -130,18 +130,18 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 1.3rem;
 }
 .page-index {
-  margin-left: 10px;
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
+  margin-left: 0.66rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
   background: #007bff;
 }
 .active {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 1.3rem;
 }
 </style>
