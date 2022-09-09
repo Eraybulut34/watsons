@@ -1,43 +1,54 @@
 <template>
-  <div class="animated fadeIn">
-      <b-container>
-    <b-row>
-        <b-col md="4" v-for="book in books"
-        :key="book.id">
-      <b-card
-        img-src="https://superbilgiler.com/wp-content/uploads/2018/11/656.jpg"
-        img-alt="Img"
-        img-top
-      >
-        <h4 class="card-title">
-       {{ book.name }}
-        </h4>
-        <p class="card-text">
-         
-          {{ book.author }}
-        </p>
-        <p class="card-text">
-          {{ book.category }}
-        </p>
-        <p class="card-text">
-          {{ book.pagenumber }} Sayfa
-        </p>
-        <div slot="footer">
-          <b-btn variant="primary" block>Add</b-btn>
+  <div class="home">
+    <div class="home-main-header container">
+      <div class="flex-row col-12 px-0 mx-0">
+        <img src="../static/watsons-icon.png" class="col-3 mx-0 px-0 " alt="">
+        <div class="col-6 flex-row">
+          <i class="absolute zIndex100 ml-1">
+            <img src="../static/search.png" alt="">
+          </i>
+          <input class="col-12 input py-1 ml-1" placeholder="Write the product or category you are looking for"
+            type="text">
         </div>
-      </b-card>
-      </b-col>
-    </b-row>
-    </b-container>
+        <div class="col-3">
+          <span>Hello,Clara Clara</span>
+          <img src="../static/clara.png" alt="">
+        </div>
 
-    <div class="card-pagination">
-      <div
-        class="page-index"
-        v-for="i in nbPages"
-        :key="i"
-        @click="goto(i)"
-        :class="{ active: currentPage(i) }"
-      ></div>
+      </div>
+      <div class="home-main-header-bottom flex-row justify-space-between col-12 mx-2">
+        <div class="title height-auto" v-for="(title,i) in titles" :key="i">{{title}}</div>
+      </div>
+    </div>
+    <div class="home-carousel flex-row justify-space-between">
+      <div><img src="../static/left-arrow.png" class="px-4" alt=""></div>
+      <div class="carousel-inner flex-row">
+        <div class="carousel-left col-6 flex-column">
+          <div class="carousel-small-title">
+            NATURALS BY WATSONS
+          </div>
+          <div class="caorusel-big-title">
+            The New 2021 Collection
+          </div>
+          <div class="carousel-description">
+            Known as "the miracle plant", Aloe Vera helps to nourish, moisturize and keep the hair looking smooth. Let your hair be flexible and fresh.
+          </div>
+        </div>
+        <div class="carousel-right flex-row">
+<img src="../static/bottle.png" alt="">
+<img src="../static/bottle2.png" alt="">
+        </div>
+      </div>
+      <div ><img src="../static/right-arrow.png" class="px-4" alt=""></div>
+    </div>
+    <div class="home-main-content">
+    </div>
+    <div class="signup-newsletter">
+    </div>
+    <div class="ads">
+    </div>
+
+    <div class="featured-categories">
     </div>
   </div>
 </template>
@@ -46,102 +57,96 @@
 export default {
   data() {
     return {
-      menuTypes: [
-        { id: null, name: 'Kategori' },
-        { id: 1, name: 'Polisiye' },
-        { id: 2, name: 'Felsefe' },
-        { id: 3, name: 'Kişisel Gelişim' },
-      ],
-      books: null,
-      bookName: null,
-      bookAuthor: null,
-      bookCategory: 'Kategori',
-      pageNumber: null,
-      bookId: null,
+      titles: [
+        'CAMPAIGNS',
+        'PERSONAL CARE',
+        'SKIN CARE',
+        'MAKE-UP',
+        'MOTHER & BABY',
+        'MEN CARE',
+        'HEALTHY LIFE',
+        'BRANDS'
+      ]
     }
-  },
-  mounted() {
-    this.getBooks()
-  },
-  methods: {
-    saveBook() {
-      this.$axios
-        .post('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/', {
-          name: this.bookName,
-          author: this.bookAuthor,
-          category: this.bookCategory,
-          pagenumber: this.pageNumber,
-        })
-        .then(() => {
-          this.getBooks()
-          this.bookAuthor = null
-          this.bookName = null
-          this.bookCategory = null
-          this.pageNumber = null
-        })
-    },
-    deleteBook(id) {
-      this.$axios.delete('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/' + id).then(() => {
-        this.getBooks()
-      })
-    },
-
-    getBooks() {
-      this.$axios
-        .get('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/')
-        .then((response) => (this.books = response.data))
-    },
-    updateBook() {
-      this.$axios
-        .put('https://61ababeb264ec200176d42c8.mockapi.io/kitaplar/' + this.bookId, {
-          name: this.bookName,
-          category: this.bookCategory,
-          author: this.bookAuthor,
-          pagenumber: this.pageNumber,
-        })
-        .then((resp) => {
-          this.getBooks()
-          this.bookAuthor = null
-          this.bookName = null
-          this.bookCategory = null
-          this.pageNumber = null
-          this.bookId = null
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    },
-    editBook(data) {
-      this.bookName = data.name
-      this.bookAuthor = data.author
-      this.bookCategory = data.category
-      this.pageNumber = data.pagenumber
-      this.bookId = data.id
-    },
-  },
-  beforeMount() {
-    this.books
-  },
+  }
 }
 </script>
 
 <style>
-.card-pagination {
+.home {
+  width: 100%
+}
+
+.home-main-header {
+  background-color: #fff;
+  padding: 10px;
+  height: 10rem;
+}
+
+.home-carousel {
+  background-color: #F2F0FF;
+  color: #fff;
+  padding: 10px;
+  height: 28.5rem;
+}
+
+.home-main-content {
+  background-color: #fff;
+  color: #fff;
+  padding: 10px;
+  height: 40rem;
+}
+
+.signup-newsletter {
+  background-color: #F2F0FF;
+  color: #fff;
+  padding: 10px;
+  height: 12rem;
+}
+
+.ads {
+  background-color: #10A0AE;
+  color: #fff;
+  padding: 10px;
+  height: 28.5rem;
+}
+
+.featured-categories {
+  background-color: #fff;
+  color: #fff;
+  padding: 10px;
+  height: 66rem;
+}
+
+.home-main-header-bottom {
+  max-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.3rem;
 }
-.page-index {
-  margin-left: 0.66rem;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 1rem;
-  background: #007bff;
+
+.carousel-small-title{
+  color: #8493A8;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 16px;
 }
-.active {
-  width: 1.3rem;
-  height: 1.3rem;
-  border-radius: 1.3rem;
+
+.caorusel-big-title{
+  color: #2A2A48;
+  font-weight: 700;
+  font-size: 2.7rem;
+  line-height: 48px;
+}
+
+.carousel-description{
+  color: #485363;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 24px;
 }
 </style>
