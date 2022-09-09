@@ -2,19 +2,18 @@
   <div class="home">
     <div class="home-main-header container">
       <div class="flex-row col-12 px-0 mx-0">
-        <img src="../static/watsons-icon.png" class="col-3 mx-0 px-0 " alt="">
-        <div class="col-6 flex-row">
-          <i class="absolute zIndex100 ml-1">
+        <img src="../static/watsons-icon.png" class="col-2 mx-0 px-0 " alt="">
+        <div class="col-7 flex-row">
+          <i class="absolute zIndex100 ml-3">
             <img src="../static/search.png" alt="">
           </i>
-          <input class="col-12 input py-1 ml-1" placeholder="Write the product or category you are looking for"
+          <input class="col-12 input py-1 pl-5" placeholder="Write the product or category you are looking for"
             type="text">
         </div>
-        <div class="col-3">
+        <div class="col-2 flex-row">
           <span>Hello,Clara Clara</span>
           <img src="../static/clara.png" alt="">
         </div>
-
       </div>
       <div class="home-main-header-bottom flex-row justify-space-between col-12 mx-2">
         <div class="title height-auto" v-for="(title,i) in titles" :key="i">{{title}}</div>
@@ -31,17 +30,23 @@
             The New 2021 Collection
           </div>
           <div class="carousel-description">
-            Known as "the miracle plant", Aloe Vera helps to nourish, moisturize and keep the hair looking smooth. Let your hair be flexible and fresh.
+            Known as "the miracle plant", Aloe Vera helps to nourish, moisturize and keep the hair looking smooth. Let
+            your hair be flexible and fresh.
           </div>
         </div>
         <div class="carousel-right flex-row">
-<img src="../static/bottle.png" alt="">
-<img src="../static/bottle2.png" alt="">
+          <img src="../static/left-bottle.png">
+          <img src="../static/bottle.png">
+          <img src="../static/bottle2.png">
         </div>
       </div>
-      <div ><img src="../static/right-arrow.png" class="px-4" alt=""></div>
+      <div><img src="../static/right-arrow.png" class="px-4" alt=""></div>
     </div>
-    <div class="home-main-content">
+    <div class="home-main-content flex-column">
+      <div class="featured-products-title">Featured Products</div>
+      <div class="products flex-row container">
+
+      </div>
     </div>
     <div class="signup-newsletter">
     </div>
@@ -54,6 +59,7 @@
 </template>
 
 <script>
+import axiosService from "../services/axios-service"
 export default {
   data() {
     return {
@@ -66,8 +72,18 @@ export default {
         'MEN CARE',
         'HEALTHY LIFE',
         'BRANDS'
-      ]
+      ],
+      products: new Array
     }
+  },
+  methods: {
+    getProducts() {
+     this.products = axiosService.get("/products")
+     console.log(this.products)
+    }
+  },
+  mounted() {
+    this.getProducts();
   }
 }
 </script>
@@ -86,7 +102,7 @@ export default {
 .home-carousel {
   background-color: #F2F0FF;
   color: #fff;
-  padding: 10px;
+  padding: 8rem;
   height: 28.5rem;
 }
 
@@ -129,24 +145,33 @@ export default {
   justify-content: center;
 }
 
-.carousel-small-title{
+.carousel-small-title {
   color: #8493A8;
   font-weight: 700;
   font-size: 1rem;
   line-height: 16px;
 }
 
-.caorusel-big-title{
+.caorusel-big-title {
   color: #2A2A48;
   font-weight: 700;
   font-size: 2.7rem;
   line-height: 48px;
 }
 
-.carousel-description{
+.carousel-description {
   color: #485363;
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 24px;
+}
+
+.featured-products-title {
+  text-align: center;
+  color: #0099A8;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 48px;
+  margin: 2rem 0;
 }
 </style>
