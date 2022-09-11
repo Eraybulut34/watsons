@@ -49,11 +49,5 @@ export default {
       lang: 'en',
     },
   },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    publicPath: '/dist/',
-  },
-
-  buildDir: 'dist',
+  srcDir: './',
 }
