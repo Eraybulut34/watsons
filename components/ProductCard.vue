@@ -8,7 +8,7 @@
         <span class="product-card-content-title center">{{ product.title }}</span>
       </div>
       <div class="product-card-content-price">
-        <span>{{ product.description.slice(0,25) }}</span>
+        <span>{{ product.description.slice(0,24) }}</span>
       </div>
       <button class="product-shop-button">
         SHOP NOW
