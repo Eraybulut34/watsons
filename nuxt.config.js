@@ -49,5 +49,4 @@ export default {
       lang: 'en',
     },
   },
-  srcDir: './',
 }
