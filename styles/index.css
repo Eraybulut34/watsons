@@ -258,7 +258,7 @@ body {
 
 @media screen and (max-width: 600px) {
   .title {
-    width: 100%;
+    display: none;
   }
   .grid-2{
     grid-gap: 2.3rem;

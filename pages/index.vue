@@ -26,15 +26,10 @@
         <div class="hamburger">
           <img src="../static/hamburger.png" alt="">
         </div>
-
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
-          data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
-          aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
       </div>
-      <ul class="home-main-header-bottom flex-row justify-space-between col-12 mx-2 collapse navbar-collapse"
-        id="navbarSupportedContent1">
-        <li class="title height-auto" v-for="(title,i) in titles" :key="i">{{title}}</li>
-      </ul>
+      <div class="home-main-header-bottom flex-row justify-space-between col-12 mx-2">
+        <span class="title height-auto" v-for="(title,i) in titles" :key="i">{{title}}</span>
+      </div>
     </div>
     <div class="home-carousel flex-row justify-space-between">
       <div><img src="../static/left-arrow.png" class="px-4 arrow" alt=""></div>
@@ -264,6 +259,10 @@ export default {
 
   .home-main-header {
     height: 4.5rem;
+  }
+
+  .home-main-header-bottom {
+    display: none;
   }
 
   .arrow {
