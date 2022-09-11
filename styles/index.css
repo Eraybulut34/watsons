@@ -1,6 +1,6 @@
 /* reset css */
 
-* {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -124,8 +124,8 @@
   grid-gap: 1rem;
 }
 
-.grid-3 {
-  grid-gap: 3rem;
+.grid-2 {
+  grid-gap: 2rem;
 }
 
 
@@ -248,8 +248,11 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .title {
     width: 100%;
+  }
+  .grid-2{
+    grid-gap: 2.3rem;
   }
 }

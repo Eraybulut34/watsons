@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home-main-header container">
-      <div class="flex-row col-12 px-0 mx-0 grid-3">
+      <div class="flex-row col-12 px-0 mx-0 grid-2">
         <img src="../static/watsons-icon.png" class="mx-0 px-0 watsons-icon" alt="">
         <div class="col-7 flex-row search-bar">
           <i class="absolute zIndex100 ml-3">
@@ -17,25 +17,29 @@
         <div class="search-icon">
           <img src="../static/search.png" alt="">
         </div>
-        <div class="more-icon mr-2">
+        <div class="more-icon">
           <img src="../static/more-icon.png" alt="">
         </div>
         <div class="basket-icon">
           <img src="../static/basket-icon.png" alt="">
+        </div>
+        <div class="hamburger">
+          <img src="../static/hamburger.png" alt="">
         </div>
 
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
           data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
           aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
       </div>
-      <ul class="home-main-header-bottom flex-row justify-space-between col-12 mx-2 collapse navbar-collapse" id="navbarSupportedContent1">
+      <ul class="home-main-header-bottom flex-row justify-space-between col-12 mx-2 collapse navbar-collapse"
+        id="navbarSupportedContent1">
         <li class="title height-auto" v-for="(title,i) in titles" :key="i">{{title}}</li>
       </ul>
     </div>
     <div class="home-carousel flex-row justify-space-between">
       <div><img src="../static/left-arrow.png" class="px-4 arrow" alt=""></div>
-      <div class="carousel-inner flex-row">
-        <div class="carousel-left col-6 flex-column">
+      <div class="carousel-inner">
+        <div class="carousel-left flex-column">
           <div class="carousel-small-title">
             NATURALS BY WATSONS
           </div>
@@ -46,18 +50,21 @@
             Known as "the miracle plant", Aloe Vera helps to nourish, moisturize and keep the hair looking smooth. Let
             your hair be flexible and fresh.
           </div>
+          <button class="shop-now-button">
+            SHOP NOW
+          </button>
         </div>
-        <div class="carousel-right flex-row">
-          <img src="../static/left-bottle.png">
+        <div class="carousel-right">
+          <img src="../static/left-bottle.png" class="first-image">
           <img src="../static/bottle.png">
-          <img src="../static/bottle2.png">
+          <img src="../static/bottle2.png" class="last-image">
         </div>
       </div>
       <div><img src="../static/right-arrow.png" class="px-4 arrow" alt=""></div>
     </div>
     <div class="home-main-content flex-column">
       <div class="featured-products-title">Featured Products</div>
-      <div class="products grid-1" >
+      <div class="products grid-1">
         <ProductCard v-for="p in products" :key="p.id" :product="p" />
       </div>
     </div>
@@ -118,7 +125,6 @@ export default {
   background-color: #F2F0FF;
   color: #fff;
   padding: 8rem;
-  height: 28.5rem;
 }
 
 .home-main-content {
@@ -167,6 +173,14 @@ export default {
   justify-content: center;
 }
 
+
+.carousel-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
 .carousel-small-title {
   color: #8493A8;
   font-weight: 700;
@@ -195,6 +209,17 @@ export default {
   font-size: 1.5rem;
   line-height: 48px;
   margin: 2rem 0;
+}
+
+.shop-now-button {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #FF27AD;
+  border: none;
+  border-radius: 0.3rem;
+  height: 3rem;
+  margin: 1rem 0;
 }
 
 .watsons-icon {
@@ -232,26 +257,55 @@ export default {
   .home-main-header {
     height: 5rem;
   }
-  .arrow{
+
+  .arrow {
     display: none;
   }
-  .home-carousel{
+
+  .home-carousel {
     padding: 0;
   }
-  .carousel-small-title{
+
+  .carousel-small-title {
     font-size: 0.8rem;
   }
-  .caorusel-big-title{
+
+  .caorusel-big-title {
     font-size: 1.5rem;
   }
-  .carousel-description{
+
+  .carousel-description {
     font-size: 0.8rem;
+  }
+
+  .carousel-inner {
+    flex-direction: column-reverse;
+  }
+
+  .carousel-left {
+    padding: 2rem;
+  }
+
+  .first-image {
+    display: none;
+  }
+
+  .last-image {
+    display: none;
+  }
+  .search-icon{
+    margin-left:3rem;
   }
 }
 
 @media screen and (min-width: 600px) {
   .search-icon {
     display: none;
+  }
+  .shop-now-button {
+    font-size:1rem;
+    width: 9rem;
+    height: 3rem;
   }
 }
 </style>
