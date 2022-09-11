@@ -55,8 +55,7 @@
           </button>
         </div>
         <div class="carousel-right">
-          <img src="../static/left-bottle.png" class="first-image">
-          <img src="../static/bottle.png">
+          <img src="../static/left-bottle.png">
           <img src="../static/bottle2.png" class="last-image">
         </div>
       </div>
@@ -227,6 +226,13 @@ export default {
   height: 3rem;
 }
 
+.products{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+}
+
 
 @media screen and (max-width: 600px) {
   .px-4 {
@@ -295,6 +301,19 @@ export default {
   }
   .search-icon{
     margin-left:3rem;
+  }
+  .product-card{
+    width: 100%;
+  }
+  .product-card-content-title{
+   padding: 00.3rem;
+  }
+  .product-card-image-picture{
+    padding:0;
+  }
+  .products{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

@@ -1,15 +1,18 @@
 <template>
   <div class="product-card">
     <div class="product-card-image center">
-      <img :src="product.thumbnail" width="40%" alt="product-image">
+      <img :src="product.thumbnail" width="40%" alt="product-image" class="product-card-image-picture">
     </div>
     <div class="product-card-content center">
       <div>
-        <h3 class="product-card-content-title center">{{ product.title }}</h3>
+        <span class="product-card-content-title center">{{ product.title }}</span>
       </div>
       <div class="product-card-content-price">
-        <h3>{{ product.description.slice(0,35) }}</h3>
+        <span>{{ product.description.slice(0,50) }}</span>
       </div>
+      <button class="product-shop-button">
+        SHOP NOW
+      </button>
     </div>
   </div>
 </template>
@@ -33,6 +36,8 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 16.25rem;
+  height: 21rem;
 }
 
 .product-card-content {
@@ -43,20 +48,38 @@ export default {
 }
 
 .product-card-content-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #505357;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2A2A48;
 }
 
 .product-card-content-price {
   font-size: 1rem;
-  font-weight: 600;
-  color: #505357;
-  padding: 1rem;
+  font-weight: 400;
+  color: #485363;
+  padding: 0 1.5rem;
 }
 
 .product-card-image {
-  width: 70%;
-  height: 12.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10rem;
+}
+
+.product-card-image-picture {
+  padding: 2rem;
+}
+.product-shop-button {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #FF27AD;
+  border: none;
+  border-radius: 0.3rem;
+  height: 2rem;
+  width: 90%;
+  margin: 1rem 0;
 }
 </style>
