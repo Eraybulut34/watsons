@@ -1,26 +1,39 @@
 <template>
   <div class="home">
     <div class="home-main-header container">
-      <div class="flex-row col-12 px-0 mx-0">
-        <img src="../static/watsons-icon.png" class="col-2 mx-0 px-0 " alt="">
-        <div class="col-7 flex-row">
+      <div class="flex-row col-12 px-0 mx-0 grid-3">
+        <img src="../static/watsons-icon.png" class="mx-0 px-0 watsons-icon" alt="">
+        <div class="col-7 flex-row search-bar">
           <i class="absolute zIndex100 ml-3">
             <img src="../static/search.png" alt="">
           </i>
           <input class="col-12 input py-1 pl-5" placeholder="Write the product or category you are looking for"
             type="text">
         </div>
-        <div class="col-2 flex-row">
+        <div class="col-2 flex-row hello">
           <span class="hello-text pa-1">Hello,Clara Clara</span>
           <img src="../static/clara.png" alt="">
         </div>
+        <div class="search-icon">
+          <img src="../static/search.png" alt="">
+        </div>
+        <div class="more-icon mr-2">
+          <img src="../static/more-icon.png" alt="">
+        </div>
+        <div class="basket-icon">
+          <img src="../static/basket-icon.png" alt="">
+        </div>
+
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+          aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
       </div>
-      <div class="home-main-header-bottom flex-row justify-space-between col-12 mx-2">
-        <div class="title height-auto" v-for="(title,i) in titles" :key="i">{{title}}</div>
-      </div>
+      <ul class="home-main-header-bottom flex-row justify-space-between col-12 mx-2 collapse navbar-collapse" id="navbarSupportedContent1">
+        <li class="title height-auto" v-for="(title,i) in titles" :key="i">{{title}}</li>
+      </ul>
     </div>
     <div class="home-carousel flex-row justify-space-between">
-      <div><img src="../static/left-arrow.png" class="px-4" alt=""></div>
+      <div><img src="../static/left-arrow.png" class="px-4 arrow" alt=""></div>
       <div class="carousel-inner flex-row">
         <div class="carousel-left col-6 flex-column">
           <div class="carousel-small-title">
@@ -40,11 +53,11 @@
           <img src="../static/bottle2.png">
         </div>
       </div>
-      <div><img src="../static/right-arrow.png" class="px-4" alt=""></div>
+      <div><img src="../static/right-arrow.png" class="px-4 arrow" alt=""></div>
     </div>
     <div class="home-main-content flex-column">
       <div class="featured-products-title">Featured Products</div>
-      <div class="products flex-row container justify-center grid-1">
+      <div class="products grid-1" >
         <ProductCard v-for="p in products" :key="p.id" :product="p" />
       </div>
     </div>
@@ -79,7 +92,7 @@ export default {
   },
   methods: {
     getProducts() {
-      axiosService.get("/products").then(res=> this.products =res.data.products.slice(0,3))
+      axiosService.get("/products").then(res => this.products = res.data.products.slice(0, 3))
     }
   },
   mounted() {
@@ -112,12 +125,11 @@ export default {
   background-color: #fff;
   color: #fff;
   padding: 10px;
-  height: 40rem;
 }
 
-.hello-text{
+.hello-text {
 
-  font-size:1rem
+  font-size: 1rem
 }
 
 .signup-newsletter {
@@ -185,15 +197,61 @@ export default {
   margin: 2rem 0;
 }
 
+.watsons-icon {
+  width: 10rem;
+  height: 3rem;
+}
+
 
 @media screen and (max-width: 600px) {
-.px-4{
-  padding: 0px;
-  margin: 0px;
+  .px-4 {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .flex-row {
+    flex-direction: column;
+  }
+
+  .hello {
+    display: none;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .watsons-logo {
+    width: 22%;
+  }
+
+  .more-icon {
+    display: none;
+  }
+
+  .home-main-header {
+    height: 5rem;
+  }
+  .arrow{
+    display: none;
+  }
+  .home-carousel{
+    padding: 0;
+  }
+  .carousel-small-title{
+    font-size: 0.8rem;
+  }
+  .caorusel-big-title{
+    font-size: 1.5rem;
+  }
+  .carousel-description{
+    font-size: 0.8rem;
+  }
 }
-.flex-row{
-  flex-direction: column;
+
+@media screen and (min-width: 600px) {
+  .search-icon {
+    display: none;
+  }
 }
-}
-  
 </style>

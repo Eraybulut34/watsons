@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="navbar">
-      <div class="navbar-inner container">
+      <div class="navbar-inner container px-0">
         <div class="navbar-inner-pages ">
           <div class="pages-route">
             <img src="../static/store-icon.png" alt="">
@@ -70,6 +70,7 @@ export default {
 
 .navbar-inner-pages {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   grid-gap: 1rem;
@@ -80,6 +81,7 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: 40%;
 }
 
 .pages-text {
@@ -97,6 +99,11 @@ export default {
   font-size: 1rem;
   font-style: regular;
   color: rgba(236, 236, 236, 0.5);
+
+  @media screen and (max-width: 768px) {
+    display: none;
+    
+  }
 }
 
 .navbar-contact{
@@ -106,18 +113,23 @@ export default {
 
 @media screen and (max-width: 600px) {
   .navbar-inner {
-    height: 10rem;
-  }
-  .navbar-inner {
-    flex-direction: column;
+    flex-direction: row;
   }
   .navbar-inner-pages {
-    flex-direction: column;
+    flex-direction: row;
+    margin-left: 0.5rem;
   }
   .navbar-middle-text {
     display: none;
   }
-  .navbar-contact {
+  .pages-route {
+    font-size: 1rem;
+  }
+
+  .pages-text {
+    font-size: 1.2rem;
+  }
+  .navbar-contact-text {
     display: none;
   }
 }

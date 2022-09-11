@@ -56,7 +56,7 @@ export default {
 }
 
 .product-card-image {
-  width: 18rem;
+  width: 70%;
   height: 12.5rem;
 }
 </style>

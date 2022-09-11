@@ -124,6 +124,10 @@
   grid-gap: 1rem;
 }
 
+.grid-3 {
+  grid-gap: 3rem;
+}
+
 
 
 .input {
