@@ -11,7 +11,7 @@
             type="text">
         </div>
         <div class="col-2 flex-row">
-          <span>Hello,Clara Clara</span>
+          <span class="hello-text pa-1">Hello,Clara Clara</span>
           <img src="../static/clara.png" alt="">
         </div>
       </div>
@@ -44,8 +44,8 @@
     </div>
     <div class="home-main-content flex-column">
       <div class="featured-products-title">Featured Products</div>
-      <div class="products flex-row container">
-
+      <div class="products flex-row container justify-center grid-1">
+        <ProductCard v-for="p in products" :key="p.id" :product="p" />
       </div>
     </div>
     <div class="signup-newsletter">
@@ -60,31 +60,32 @@
 
 <script>
 import axiosService from "../services/axios-service"
+import ProductCard from "../components/ProductCard.vue"
 export default {
   data() {
     return {
       titles: [
-        'CAMPAIGNS',
-        'PERSONAL CARE',
-        'SKIN CARE',
-        'MAKE-UP',
-        'MOTHER & BABY',
-        'MEN CARE',
-        'HEALTHY LIFE',
-        'BRANDS'
+        "CAMPAIGNS",
+        "PERSONAL CARE",
+        "SKIN CARE",
+        "MAKE-UP",
+        "MOTHER & BABY",
+        "MEN CARE",
+        "HEALTHY LIFE",
+        "BRANDS"
       ],
       products: new Array
-    }
+    };
   },
   methods: {
     getProducts() {
-     this.products = axiosService.get("/products")
-     console.log(this.products)
+      axiosService.get("/products").then(res=> this.products =res.data.products.slice(0,3))
     }
   },
   mounted() {
     this.getProducts();
-  }
+  },
+  components: { ProductCard }
 }
 </script>
 
@@ -97,6 +98,7 @@ export default {
   background-color: #fff;
   padding: 10px;
   height: 10rem;
+  width: 100%
 }
 
 .home-carousel {
@@ -111,6 +113,11 @@ export default {
   color: #fff;
   padding: 10px;
   height: 40rem;
+}
+
+.hello-text{
+
+  font-size:1rem
 }
 
 .signup-newsletter {
@@ -135,6 +142,9 @@ export default {
 }
 
 .home-main-header-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
   max-height: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -174,4 +184,16 @@ export default {
   line-height: 48px;
   margin: 2rem 0;
 }
+
+
+@media screen and (max-width: 600px) {
+.px-4{
+  padding: 0px;
+  margin: 0px;
+}
+.flex-row{
+  flex-direction: column;
+}
+}
+  
 </style>

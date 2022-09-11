@@ -49,6 +49,7 @@ export default {
   color: #fff;
   padding: 10px;
   height: 3.5rem;
+  width: 100%;
 }
 
 .footer {
@@ -93,5 +94,31 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
+  font-size: 1rem;
+  font-style: regular;
+  color: rgba(236, 236, 236, 0.5);
+}
+
+.navbar-contact{
+  font-size: 1rem;
+}
+
+
+@media screen and (max-width: 600px) {
+  .navbar-inner {
+    height: 10rem;
+  }
+  .navbar-inner {
+    flex-direction: column;
+  }
+  .navbar-inner-pages {
+    flex-direction: column;
+  }
+  .navbar-middle-text {
+    display: none;
+  }
+  .navbar-contact {
+    display: none;
+  }
 }
 </style>
