@@ -1,14 +1,14 @@
 <template>
   <div class="product-card">
     <div class="product-card-image center">
-      <img :src="product.thumbnail" width="40%" alt="product-image" class="product-card-image-picture">
+      <img :src="product.thumbnail" width="70%" alt="product-image" class="product-card-image-picture">
     </div>
-    <div class="product-card-content center">
+    <div class="product-card-content">
       <div>
         <span class="product-card-content-title center">{{ product.title }}</span>
       </div>
       <div class="product-card-content-price">
-        <span>{{ product.description.slice(0,50) }}</span>
+        <span>{{ product.description.slice(0,25) }}</span>
       </div>
       <button class="product-shop-button">
         SHOP NOW
@@ -51,6 +51,8 @@ export default {
   font-size: 1.3rem;
   font-weight: 700;
   color: #2A2A48;
+  padding:  0 2rem;
+  text-align: center;
 }
 
 .product-card-content-price {
@@ -58,6 +60,7 @@ export default {
   font-weight: 400;
   color: #485363;
   padding: 0 1.5rem;
+  text-align: center;
 }
 
 .product-card-image {
@@ -69,7 +72,7 @@ export default {
 }
 
 .product-card-image-picture {
-  padding: 2rem;
+  padding: 0;
 }
 .product-shop-button {
   color: white;

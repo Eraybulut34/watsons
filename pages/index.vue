@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     getProducts() {
-      axiosService.get("/products").then(res => this.products = res.data.products.slice(0, 3))
+      axiosService.get("/products").then(res => this.products = res.data.products.slice(10, 13))
     }
   },
   mounted() {
@@ -130,6 +130,7 @@ export default {
   background-color: #fff;
   color: #fff;
   padding: 10px;
+  padding-bottom: 1rem;
 }
 
 .hello-text {
@@ -231,6 +232,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 0 1rem;
+  padding-bottom: 1rem;;
 }
 
 
@@ -261,7 +263,7 @@ export default {
   }
 
   .home-main-header {
-    height: 5rem;
+    height: 4.5rem;
   }
 
   .arrow {
@@ -300,13 +302,13 @@ export default {
     display: none;
   }
   .search-icon{
-    margin-left:3rem;
+    margin-left:2rem;
   }
   .product-card{
     width: 100%;
   }
   .product-card-content-title{
-   padding: 00.3rem;
+   padding: 0 2rem;
   }
   .product-card-image-picture{
     padding:0;
@@ -325,6 +327,9 @@ export default {
     font-size:1rem;
     width: 9rem;
     height: 3rem;
+  }
+  .home-carousel{
+    padding: 6rem;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <div class="navbar">
       <div class="navbar-inner container px-0">
         <div class="navbar-inner-pages ">
@@ -114,6 +114,7 @@ export default {
 @media screen and (max-width: 600px) {
   .navbar-inner {
     flex-direction: row;
+    padding: 0 1rem;
   }
   .navbar-inner-pages {
     flex-direction: row;
